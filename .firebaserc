@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "socialize-81763"
+  },
+  "targets": {
+    "socialize-81763": {
+      "hosting": {
+        "Socialize": [
+          "socialize-81763"
+        ]
+      }
+    }
+  }
+}

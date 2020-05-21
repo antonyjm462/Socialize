@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,10 @@ export class LoginComponent implements OnInit {
 
   myForm: FormGroup;
   message: string = "";
-  userError: any;
+  userEmail: any;
+  userPassword: string;
+  userResetEmail: string;
+
 
   constructor(public fb: FormBuilder, public authService: AuthService, public router: Router) {
 
@@ -32,4 +35,20 @@ export class LoginComponent implements OnInit {
 
   }
 
+
+  onLogin(){
+    this.authService.login(this.userEmail, this.userPassword);
+  }
+
+register(){
+    this.router.navigate(['admin/register']);
+}
+
+ForgotPassword(){
+    this.authService.sendPasswordResetEmail(this.userResetEmail);
+}
+
+googlelogin(){
+    this.authService.loginWithGoogle();
+}
 }

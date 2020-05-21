@@ -16,6 +16,12 @@ import { HaveComponent } from './help/components/have/have.component';
 import { NeedItemComponent } from './help/components/need-item/need-item.component';
 import { HaveItemComponent } from './help/components/have-item/have-item.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +36,10 @@ import { HaveItemComponent } from './help/components/have-item/have-item.compone
     HaveComponent,
     NeedItemComponent,
     HaveItemComponent,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
   ],
   imports: [
     BrowserModule,
